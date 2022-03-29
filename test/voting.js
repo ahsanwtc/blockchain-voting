@@ -20,4 +20,13 @@ contract("Voting", function (accounts) {
     const results = await Promise.all([voter1, voter2, voter3].map(voter => voting.voters(voter)));
     results.forEach(voter => assert(voter === true));
   });
+
+  it("should NOT add voters", async function () {
+    await expectRevert(
+      voting.addVoters([accounts[5]], { from: voter1 }),
+      'only admin'
+    );
+  });
+
+
 });

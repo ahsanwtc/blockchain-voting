@@ -1,3 +1,5 @@
-module.exports = function(_deployer) {
-  // Use deployer to state migration tasks.
+const Voting = artifacts.require('Voting');
+
+module.exports = function(_deployer, _network, accounts) {
+  _deployer.deploy(Voting);
 };
